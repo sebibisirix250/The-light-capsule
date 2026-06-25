@@ -1,0 +1,43 @@
+TO: orders@thelightcapsule.com
+SUBJECT: New Order Received #13
+FROM: no-reply@thelightcapsule.com
+FROM_NAME: The Light Capsule
+TYPE: admin_new_order
+CREATED_AT: 2026-03-21 18:12:36
+------------------------------------------------------------
+TEXT VERSION:
+A new order was created.
+
+Order ID: #13
+Order Type: digital
+Customer: Maxim Landa
+Email: maxim.landa@hmail.com
+Total: €52.47
+
+------------------------------------------------------------
+HTML VERSION:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Order Received #13</title>
+</head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;color:#222;">
+    <div style="max-width:640px;margin:30px auto;background:#ffffff;border:1px solid #ddd;">
+        <div style="padding:24px 28px;background:#111;color:#fff;">
+            <h1 style="margin:0;font-size:22px;">The Light Capsule</h1>
+        </div>
+        <div style="padding:28px;line-height:1.6;font-size:15px;">
+            <p style="margin:0 0 16px 0;">A new order was created.</p>
+         <p style="margin:0;">
+            <strong>Order ID:</strong> #13<br>
+            <strong>Order Type:</strong> digital<br>
+            <strong>Customer:</strong> Maxim Landa<br>
+            <strong>Email:</strong> maxim.landa@hmail.com<br>
+            <strong>Total:</strong> €52.47
+         </p>
+        </div>
+    </div>
+</body>
+</html>

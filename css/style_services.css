@@ -1,0 +1,189 @@
+/* VARIABLES */
+:root {
+    --primary-teal: #59C5B8;
+    --primary-teal-hover: #4ab1a5;
+    --text-pure: #FFFFFF;
+    --text-muted: rgba(255, 255, 255, 0.65);
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #061114;
+    background-image: url('../assets/images/INDEX/2.jpg');
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(6, 17, 20, 0.8) 0%, rgba(6, 17, 20, 0.98) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1;
+}
+
+/* MAIN LAYOUT */
+.services-page-main {
+    position: relative;
+    z-index: 2;
+    padding: 180px 0;
+}
+.services-grid-container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 180px; 
+}
+
+/* ITEM WRAPPERS */
+.service-item-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px;
+    position: relative;
+    padding: 20px 0;
+    cursor: default;
+}
+.service-item-wrapper:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* IMAGE FRAMES */
+.button {
+    flex: 1.2;
+    position: relative;
+}
+.button-content {
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+    background: #000;
+}
+.button-content img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-item-wrapper:hover .button-content img {
+    transform: scale(1.08);
+}
+
+/* DECORATIVE BRACKETS */
+.button::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    z-index: 1;
+    pointer-events: none;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.service-item-wrapper:nth-child(odd) .button::after {
+    bottom: -20px;
+    left: -20px;
+    border-left: 2px solid var(--primary-teal);
+    border-bottom: 2px solid var(--primary-teal);
+}
+.service-item-wrapper:nth-child(even) .button::after {
+    bottom: -20px;
+    right: -20px;
+    border-right: 2px solid var(--primary-teal);
+    border-bottom: 2px solid var(--primary-teal);
+}
+.service-item-wrapper:nth-child(odd):hover .button::after {
+    transform: translate(-8px, 8px);
+}
+.service-item-wrapper:nth-child(even):hover .button::after {
+    transform: translate(8px, 8px);
+}
+
+/* CONTENT BLOCKS */
+.overlay {
+    flex: 1;
+    padding-left: 50px;
+    border-left: 1px solid rgba(89, 197, 184, 0.25); 
+}
+.service-item-wrapper:nth-child(even) .overlay {
+    padding-left: 0;
+    padding-right: 50px;
+    border-left: none;
+    border-right: 1px solid rgba(89, 197, 184, 0.25);
+    text-align: right;
+}
+.service-title {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 60px);
+    color: var(--text-pure);
+    margin: 0 0 25px 0;
+    font-style: italic;
+    line-height: 1;
+}
+.overlay-content p {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 2;
+    color: var(--text-muted);
+    margin: 0 0 45px 0;
+}
+
+/* BUTTON ACTIONS */
+.service-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.service-item-wrapper:nth-child(even) .service-actions {
+    justify-content: flex-end;
+}
+.service-btn {
+    padding: 16px 32px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-pure);
+    text-decoration: none;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+}
+.service-btn:hover {
+    border-color: var(--primary-teal);
+    color: var(--primary-teal);
+    background: rgba(89, 197, 184, 0.05);
+}
+.primary-btn {
+    background: var(--primary-teal);
+    border-color: var(--primary-teal);
+    color: #000;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1100px) {
+    .service-item-wrapper, 
+    .service-item-wrapper:nth-child(even) {
+        flex-direction: column;
+        gap: 60px;
+        text-align: center;
+    }
+    .overlay {
+        padding: 0 !important;
+        border: none !important;
+    }
+    .service-actions { 
+        justify-content: center !important; 
+    }
+}

@@ -1,0 +1,299 @@
+/* LAYOUT */
+.dashboard-container {
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow: visible !important;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    background-image: linear-gradient(rgba(18, 33, 43, 0.65), rgba(18, 33, 43, 0.65)), url('../assets/images/INDEX/8.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+}
+.dashboard-wrapper {
+    width: 95%;
+    max-width: 1400px; 
+    margin: 0 auto;
+}
+
+/* HEADER */
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.welcome-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 48px);
+    color: #FFFFFF;
+    margin: 0 0 10px 0;
+    font-weight: 500;
+}
+.welcome-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+}
+
+/* BUTTONS */
+.back-dashboard-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+}
+.back-dashboard-link i { width: 16px; height: 16px; transition: transform 0.3s ease; }
+.back-dashboard-link:hover {
+    background: rgba(89, 197, 184, 0.08);
+    border-color: #59C5B8;
+    color: #59C5B8;
+}
+.back-dashboard-link:hover i { transform: translateX(-6px); }
+
+/* GRID */
+.order-detail-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr; 
+    gap: 35px;
+    align-items: start; 
+}
+.receipt-section {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.logistics-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* PANEL */
+.glass-panel {
+    background: linear-gradient(135deg, rgba(35, 55, 65, 0.45) 0%, rgba(18, 33, 43, 0.55) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    padding: 35px;
+}
+.panel-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    color: #FFFFFF;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin: 0 0 25px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.panel-heading i {
+    color: #59C5B8;
+    width: 20px;
+    height: 20px;
+}
+
+/* ITEMS */
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.receipt-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 10px;
+    transition: 0.3s ease;
+}
+.receipt-item:hover {
+    border-color: rgba(89, 197, 184, 0.2);
+    background: rgba(0, 0, 0, 0.3);
+}
+.item-primary-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+.item-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+    margin: 0;
+    font-weight: 600;
+}
+.item-type {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #59C5B8;
+    font-weight: 600;
+}
+.item-options {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 5px;
+    line-height: 1.5;
+}
+.item-financials {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    text-align: right;
+}
+.qty-price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.qty { font-size: 12px; color: rgba(255, 255, 255, 0.5); font-weight: 600; }
+.unit-price { font-size: 12px; color: rgba(255, 255, 255, 0.7); }
+.line-total {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: 600;
+    min-width: 80px;
+}
+.receipt-footer {
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.total-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+}
+.total-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+}
+.total-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #59C5B8;
+    font-weight: 700;
+}
+
+/* NOTES */
+.notes-content {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 3px solid #59C5B8;
+}
+
+/* SIDEBAR ROWS */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.last-row { border-bottom: none; padding-bottom: 0; }
+.info-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 600;
+}
+.info-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #FFFFFF;
+    font-weight: 500;
+    text-align: right;
+    max-width: 60%;
+}
+.address-text {
+    line-height: 1.5;
+}
+
+/* STATUS */
+.status-pill {
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #FFFFFF !important;
+    white-space: nowrap;
+}
+.badge-completed { background: rgba(89, 197, 184, 0.25); border: 1px solid rgba(89, 197, 184, 0.4); }
+.badge-pending { background: rgba(243, 156, 18, 0.25); border: 1px solid rgba(243, 156, 18, 0.4); }
+.payment-status-text {
+    color: #FFFFFF !important;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    white-space: nowrap;
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1100px) {
+    .order-detail-grid {
+        grid-template-columns: 1fr; 
+    }
+    .logistics-sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+@media screen and (max-width: 768px) {
+    .logistics-sidebar { grid-template-columns: 1fr; } 
+    .detail-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+    .receipt-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .item-financials { width: 100%; justify-content: space-between; }
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .info-value { text-align: left; max-width: 100%; }
+}

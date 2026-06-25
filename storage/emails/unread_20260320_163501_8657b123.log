@@ -1,0 +1,43 @@
+TO: orders@thelightcapsule.com
+SUBJECT: New Order Received #9
+FROM: no-reply@thelightcapsule.com
+FROM_NAME: The Light Capsule
+TYPE: admin_new_order
+CREATED_AT: 2026-03-20 16:35:01
+------------------------------------------------------------
+TEXT VERSION:
+A new order was created.
+
+Order ID: #9
+Order Type: mixed
+Customer: Ontijt Sebastian
+Email: sebastian.ontijt@yahoo.com
+Total: €45.00
+
+------------------------------------------------------------
+HTML VERSION:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Order Received #9</title>
+</head>
+<body style="margin:0;padding:0;background:#f5f5f5;font-family:Arial,Helvetica,sans-serif;color:#222;">
+    <div style="max-width:640px;margin:30px auto;background:#ffffff;border:1px solid #ddd;">
+        <div style="padding:24px 28px;background:#111;color:#fff;">
+            <h1 style="margin:0;font-size:22px;">The Light Capsule</h1>
+        </div>
+        <div style="padding:28px;line-height:1.6;font-size:15px;">
+            <p style="margin:0 0 16px 0;">A new order was created.</p>
+         <p style="margin:0;">
+            <strong>Order ID:</strong> #9<br>
+            <strong>Order Type:</strong> mixed<br>
+            <strong>Customer:</strong> Ontijt Sebastian<br>
+            <strong>Email:</strong> sebastian.ontijt@yahoo.com<br>
+            <strong>Total:</strong> €45.00
+         </p>
+        </div>
+    </div>
+</body>
+</html>

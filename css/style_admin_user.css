@@ -1,0 +1,188 @@
+/* VARIABLES */
+:root {
+    --sidebar-bg: #2c3e50;
+    --sidebar-hover: rgba(255, 255, 255, 0.05);
+    --main-bg: #f4f7f6;
+    --text-dark: #333;
+    --text-light: #ecf0f1;
+    --primary: #3498db;
+    --success: #2ecc71;
+    --warning: #f1c40f;
+    --danger: #e74c3c;
+    --white: #ffffff;
+    --border-rgba: rgba(255, 255, 255, 0.1);
+}
+
+/* LAYOUT */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+.admin-sidebar {
+    width: 260px;
+    background: var(--sidebar-bg);
+    color: var(--white);
+    padding: 25px;
+    flex-shrink: 0;
+}
+.admin-sidebar h2 {
+    font-size: 1.4rem;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-rgba);
+    margin-bottom: 25px;
+}
+.admin-sidebar ul { 
+    list-style: none; 
+    padding: 0 !important; 
+    margin: 0 !important; 
+}
+.admin-sidebar li { margin: 18px 0; position: relative; }
+.admin-sidebar a {
+    color: var(--text-light);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+.admin-sidebar a:hover { color: var(--primary); }
+.notification-dot {
+    height: 8px;
+    width: 8px;
+    background-color: var(--danger);
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    box-shadow: 0 0 5px var(--danger);
+}
+.dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    list-style: none;
+    padding-left: 25px;
+    transition: max-height 0.4s ease-out;
+    opacity: 0;
+}
+.dropdown-container:hover .dropdown-menu {
+    max-height: 200px;
+    opacity: 1;
+    margin-top: 10px;
+}
+
+/* MAIN CONTENT */
+.admin-main {
+    flex: 1;
+    padding: 40px;
+    background: var(--main-bg);
+}
+.admin-main h1 {
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+/* TABLE */
+.data-table-container {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.admin-table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid #eee;
+    color: #666;
+}
+.admin-table td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+.admin-table tbody td div a {
+    font-size: 1.2rem; 
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+.admin-table tbody td div a:hover {
+    transform: scale(1.2); 
+}
+
+/* TITLE & SEARCH BOX */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+.search-filter-form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+    .admin-sidebar { width: 220px; }
+    .admin-container { flex-direction: column; }
+    .admin-sidebar { width: 100%; padding: 20px; }
+    .admin-sidebar h2 { text-align: center; margin-bottom: 15px; }
+    .admin-sidebar ul { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .admin-sidebar li { margin: 0; }
+    .dropdown-menu {
+        position: absolute;
+        background: var(--sidebar-bg);
+        z-index: 99;
+        padding: 10px;
+        top: 100%;
+        width: 180px;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .admin-main { padding: 20px; }
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-filter-form { width: 100%; }
+    .search-filter-form input, .search-filter-form select { flex: 1; }
+    .admin-table thead { display: none; }
+    .admin-table tr {
+        display: block;
+        border: 1px solid #eee;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        padding: 10px;
+    }
+    .admin-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #f9f9f9;
+        padding: 10px 5px;
+        text-align: right;
+    }
+    .admin-table td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #888;
+        text-align: left;
+    }
+    .admin-table td:last-child { border: none; }
+}

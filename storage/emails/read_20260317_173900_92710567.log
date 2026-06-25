@@ -1,0 +1,15 @@
+TO: orders@thelightcapsule.com
+SUBJECT: New Order Received #5
+FROM: no-reply@thelightcapsule.com
+FROM_NAME: The Light Capsule
+TYPE: admin_new_order
+CREATED_AT: 2026-03-17 17:39:00
+------------------------------------------------------------
+A new order was created.
+
+Order ID: #5
+Order Type: mixed
+Customer: Ontijt Sebastian
+Email: sebastian.ontijt@yahoo.com
+Total: €90.00
+

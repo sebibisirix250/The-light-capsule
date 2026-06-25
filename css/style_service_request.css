@@ -1,0 +1,269 @@
+/* VARIABLES */
+:root {
+    --primary-teal: #59C5B8;
+    --primary-teal-hover: #6fe0d2;
+    --bg-dark: #162935;
+    
+    --glass-bg: linear-gradient(135deg, rgba(30, 48, 58, 0.4) 0%, rgba(18, 33, 43, 0.6) 100%);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    --text-pure: #FFFFFF;
+    --text-muted: #aeb9c0;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    --transition-standard: all 0.3s ease;
+}
+
+/* LAYOUT & BG */
+body {
+    background-color: #080d11; 
+    color: var(--text-pure);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100vh; 
+    overflow: hidden; 
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; 
+    background-image: url('../assets/images/INDEX/133.jpg'); 
+    background-size: cover;
+    background-position: center;
+    filter: blur(50px) brightness(0.65) saturate(1.2); 
+    transform: scale(1.1); 
+    pointer-events: none;
+}
+
+/* FULLSCREEN */
+.book-fullscreen {
+    position: relative;
+    z-index: 1; 
+    flex: 1; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 20px 20px;
+    box-sizing: border-box;
+}
+.book-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px; 
+    width: 100%;
+    max-width: 1300px; 
+    height: 100%;
+    max-height: 820px; 
+}
+
+/* PANEL */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    height: 100%; 
+}
+.glass-panel::-webkit-scrollbar {
+    width: 6px;
+}
+.glass-panel::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.glass-panel::-webkit-scrollbar-thumb {
+    background: var(--primary-teal);
+    border-radius: 10px;
+}
+
+/* TYPOGRAPHY */
+.section-title, .book-title {
+    font-family: var(--font-heading);
+    color: var(--text-pure);
+    margin: 0 0 10px 0;
+    flex-shrink: 0; 
+}
+.book-title { font-size: 32px; }
+.section-title { font-size: 24px; margin-bottom: 25px; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px;}
+.book-subtitle { 
+    color: var(--text-muted); 
+    font-size: 14px; 
+    margin-bottom: 20px; 
+    flex-shrink: 0; 
+}
+
+/* CALENDAR */
+.calendar-wrapper {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    flex-shrink: 0;
+}
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.calendar-header h3 {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 600;
+}
+.calendar-header button {
+    background: none;
+    border: none;
+    color: var(--text-pure);
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.calendar-header button:hover { color: var(--primary-teal); }
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+.cal-day {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 10px 0;
+    color: var(--text-pure);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 14px;
+    transition: var(--transition-standard);
+}
+.cal-day:hover:not(.disabled) {
+    background: rgba(89, 197, 184, 0.2);
+    border-color: var(--primary-teal);
+}
+.cal-day.selected {
+    background: var(--primary-teal);
+    color: var(--bg-dark);
+    font-weight: 700;
+}
+.cal-day.past {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: transparent;
+}
+.cal-day.booked {
+    background: rgba(255, 0, 0, 0.15);
+    color: #ff6b6b;
+    text-decoration: line-through;
+    cursor: not-allowed;
+    border-color: rgba(255, 0, 0, 0.2);
+}
+
+/* ADDONS & CHECKBOXES */
+.addons-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 12px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition-standard);
+    border: 1px solid transparent;
+}
+.checkbox-group:hover { background: rgba(0, 0, 0, 0.3); border-color: var(--glass-border); }
+.checkbox-label-wrapper { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.checkbox-label-wrapper input[type="checkbox"] { accent-color: var(--primary-teal); width: 16px; height: 16px; }
+.option-price { color: var(--primary-teal); font-weight: 600; font-size: 13px; }
+
+/* FORMS */
+.auth-form { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    flex-grow: 1; 
+}
+.input-group { position: relative; flex-shrink: 0; }
+.input-icon {
+    position: absolute; top: 18px; left: 15px; width: 18px; height: 18px; color: rgba(255, 255, 255, 0.4); z-index: 2;
+}
+.auth-input {
+    width: 100%; padding: 16px 15px 16px 45px; background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--glass-border); border-radius: 6px; box-sizing: border-box;
+    color: var(--text-pure); font-family: var(--font-body); font-size: 14px;
+    transition: var(--transition-standard);
+}
+.auth-input:focus { outline: none; border-color: var(--primary-teal); background: rgba(0, 0, 0, 0.3); }
+.textarea-group { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100px; 
+}
+.textarea-group .input-icon { top: 18px; }
+.textarea-group .auth-input { padding-left: 15px; resize: none; flex-grow: 1; }
+.auth-label {
+    position: absolute; top: 50%; left: 45px; transform: translateY(-50%);
+    color: var(--text-muted); font-size: 14px; pointer-events: none; transition: var(--transition-standard);
+}
+.textarea-group .auth-label { top: 18px; left: 15px; transform: none; }
+.auth-input:focus ~ .auth-label,
+.auth-input:not(:placeholder-shown) ~ .auth-label {
+    top: 0; transform: translateY(-50%) scale(0.85); left: 35px;
+    color: var(--primary-teal); background: #1a2c35; padding: 0 8px; border-radius: 4px;
+}
+.textarea-group .auth-input:focus ~ .auth-label,
+.textarea-group .auth-input:not(:placeholder-shown) ~ .auth-label { left: 10px; }
+
+/* LIVE PRICE & SUBMIT */
+.live-price-box {
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 6px; border-left: 3px solid var(--primary-teal);
+    margin-top: auto; flex-shrink: 0;
+}
+.live-price-box span { color: var(--text-muted); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
+.live-price-box strong { color: var(--text-pure); font-size: 24px; font-family: var(--font-heading); }
+.auth-submit {
+    padding: 18px; background: var(--primary-teal); color: var(--bg-dark); border: none; border-radius: 6px;
+    font-family: var(--font-body); font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
+    cursor: pointer; transition: var(--transition-standard); flex-shrink: 0;
+}
+.auth-submit:hover:not(:disabled) { background: var(--primary-teal-hover); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(89, 197, 184, 0.4); }
+.auth-submit:disabled { background: #3a4b54; color: #88959c; cursor: not-allowed; }
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+    body { height: auto; overflow: visible; } 
+    .book-fullscreen { display: block; height: auto; padding-top: 100px; }
+    .book-container { grid-template-columns: 1fr; max-height: none; gap: 40px; }
+    .glass-panel { height: auto; overflow-y: visible; }
+}

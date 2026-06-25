@@ -1,0 +1,171 @@
+/* VARIABLES */
+:root {
+    /* Primary Brand Colors */
+    --primary-teal: #59C5B8;
+    --primary-teal-hover: #6fe0d2;
+    --primary-teal-glow: rgba(89, 197, 184, 0.3);
+    
+    /* Backgrounds & Layers */
+    --bg-dark-auth: #162935;
+    --bg-input: rgba(0, 0, 0, 0.2);
+    --glass-card: linear-gradient(135deg, rgba(30, 48, 58, 0.4) 0%, rgba(18, 33, 43, 0.6) 100%);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    
+    /* Text Colors */
+    --text-pure: #FFFFFF;
+    --text-label: rgba(255, 255, 255, 0.5);
+    --text-muted: #aeb9c0;
+    --text-footer: rgba(255, 255, 255, 0.6);
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+    
+    /* Physics */
+    --transition-standard: all 0.3s ease;
+}
+
+/* LAYOUT */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: transparent;
+    margin: 0;
+}
+
+/* BG */
+body::before {
+    content: "";
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    background-image: 
+        linear-gradient(rgba(22, 41, 53, 0.35), rgba(22, 41, 53, 0.35)),
+        url('../assets/images/INDEX/8.jpg');
+    background-size: cover;
+    background-position: center;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* CARD */
+main {
+    /* Layout control to prevent stretching */
+    height: fit-content;
+    flex: 0 0 auto;
+    margin: auto; /* Automatically balances top and bottom space */
+    
+    /* Visual styles */
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 12px;
+    background: var(--glass-card);
+    backdrop-filter: blur(20px) saturate(150%);
+    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),         
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+/* TYPOGRAPHY */
+main h1 {
+    text-align: center;
+    margin-bottom: 35px;
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 500;
+    color: var(--text-pure);
+    letter-spacing: 1.5px;
+    margin-top: 0;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* FORM & LABELS */
+main form {
+    display: flex;
+    flex-direction: column;
+}
+
+main form div {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* INPUT FIELD */
+main form input[type="password"] {
+    width: 100%;
+    padding: 16px 15px; 
+    background: var(--bg-input);
+    border: 1px solid var(--glass-border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-pure);
+    letter-spacing: 1px;
+    transition: var(--transition-standard);
+    box-sizing: border-box;
+}
+
+main form input[type="password"]:focus {
+    outline: none;
+    background: rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-teal); 
+    box-shadow: 0 0 10px var(--primary-teal-glow);
+}
+
+/* LABELS */
+main form label {
+    color: var(--text-label);
+    font-family: var(--font-body);
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    transition: var(--transition-standard);
+}
+
+main form div:focus-within label {
+    color: var(--primary-teal);
+}
+
+/* BUTTONS & FOOTER */
+main form button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bg-dark-auth); 
+    background: var(--primary-teal); 
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--primary-teal-glow);
+    transition: var(--transition-standard);
+    margin-top: 5px;
+}
+
+main form button[type="submit"]:hover {
+    background: var(--primary-teal-hover); 
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(89, 197, 184, 0.4);
+}
+
+main form button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px var(--primary-teal-glow);
+}
